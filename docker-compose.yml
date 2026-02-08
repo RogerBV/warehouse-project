@@ -1,0 +1,36 @@
+services:
+  warehousedbserver:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "${DB_NAME}", "-U", "${DB_USER}"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  
+  warehouse-backend:
+    build:
+      context: ./warehouse-backend
+      dockerfile: Dockerfile
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+    ports:
+      - "${BACKEND_PORT}:3000"
+    volumes:
+      # Monta el código para que los cambios en el host se reflejen en el contenedor
+      - ./warehouse-backend:/app
+      # Evita que el node_modules del host sobrescriba el del contenedor (Linux)
+      - /app/node_modules
+    command: npm run start:dev
+    depends_on:
+      warehousedbserver:
+        condition: service_healthy

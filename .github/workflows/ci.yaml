@@ -1,0 +1,23 @@
+name: CI Pipeline
+
+on:
+    pull_request:
+        branches:
+            - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Repository's Checkout
+              uses: actions/checkout@v4
+            
+            - name: Settings Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 22
+
+            - name: Install Dependencies
+              run: |
+                cd warehouse-backend
+                npm install
+                npm run test
