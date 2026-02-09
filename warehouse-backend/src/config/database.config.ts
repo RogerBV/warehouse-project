@@ -12,5 +12,8 @@ export const databaseConfig: TypeOrmModuleAsyncOptions = {
     database: configService.get<string>('DB_NAME'),
     autoLoadEntities: true,
     synchronize: true, // ⚠️ solo desarrollo
+    ssl: {
+      rejectUnauthorized: false, // necesario para muchos proveedores gestionados como Render
+    },
   }),
 };
