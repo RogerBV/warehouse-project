@@ -53,4 +53,19 @@ describe('CategoryService', () => {
             expect(mockRepository.save).toHaveBeenCalledWith(dto);
         })
     })
+
+    describe('findAll', () => {
+        it('should return an arra of categories', async () => {
+            const categories = [{
+                id: 1, name: 'Electronic'
+            }]
+
+            mockRepository.find.mockResolvedValue(categories)
+
+            const result = await service.getCategories()
+
+            expect(result).toEqual(categories)
+            expect(mockRepository.find).toHaveBeenCalled()
+        })
+    })
 })
