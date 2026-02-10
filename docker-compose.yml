@@ -20,15 +20,13 @@ services:
       dockerfile: Dockerfile
     environment:
       - DB_PASSWORD=${DB_PASSWORD}
-      - DB_USERNAME=${DB_USER}
+      - DB_USER=${DB_USER}
       - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
     ports:
       - "${BACKEND_PORT}:3000"
     volumes:
-      # Monta el código para que los cambios en el host se reflejen en el contenedor
       - ./warehouse-backend:/app
-      # Evita que el node_modules del host sobrescriba el del contenedor (Linux)
       - /app/node_modules
     command: npm run start:dev
     depends_on:
