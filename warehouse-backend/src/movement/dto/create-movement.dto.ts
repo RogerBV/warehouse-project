@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsDate, IsNotEmpty, IsNumber } from "class-validator";
 
-export class CreateInternalMovementDto {
+export class CreateMovementDto {
     
     @ApiProperty({ example: 1, description: 'Count' })
     @IsNotEmpty()

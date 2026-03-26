@@ -8,6 +8,13 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   
+  app.enableCors({
+    origin: '*',
+    methods: '*',
+    allowedHeaders: '*',
+    credentials: false
+  })
+
   // Configurar servidor de archivos estáticos para imágenes
   app.useStaticAssets(join(__dirname, '..', 'images'), {
     prefix: '/images/',

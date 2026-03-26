@@ -24,7 +24,7 @@ services:
       - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
     ports:
-      - "${BACKEND_PORT}:3000"
+      - "${VITE_BACKEND_PORT}:3000"
     volumes:
       - ./warehouse-backend:/app
       - /app/node_modules
@@ -32,3 +32,14 @@ services:
     depends_on:
       warehousedbserver:
         condition: service_healthy
+  warehouse-frontend:
+    build:
+      context: ./warehouse-frontend
+      dockerfile: ./Dockerfile
+    environment:
+      - VITE_BACKEND_PORT=${VITE_BACKEND_PORT}
+      - VITE_BACKEND_HOST=${VITE_BACKEND_HOST}
+    ports:
+      - 5173:5173
+    volumes:
+      - ./warehouse-frontend/src:/app/src

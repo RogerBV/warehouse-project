@@ -8,18 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MovementModule = void 0;
 const common_1 = require("@nestjs/common");
-const internal_movement_service_1 = require("./internal.movement.service");
+const movement_service_1 = require("./movement.service");
 const movement_controller_1 = require("./movement.controller");
 const typeorm_1 = require("@nestjs/typeorm");
-const internal_movement_entity_1 = require("./internal.movement.entity");
+const movement_entity_1 = require("./movement.entity");
 let MovementModule = class MovementModule {
 };
 exports.MovementModule = MovementModule;
 exports.MovementModule = MovementModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([internal_movement_entity_1.InternalMovement])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([movement_entity_1.Movement])],
         controllers: [movement_controller_1.MovementController],
-        providers: [internal_movement_service_1.InternalMovementService]
+        providers: [movement_service_1.MovementService]
     })
 ], MovementModule);
 //# sourceMappingURL=movement.module.js.map

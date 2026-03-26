@@ -3,7 +3,7 @@ import { Warehouse } from "../warehouse/warehouse.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity() 
-export class InternalMovement {
+export class Movement {
     @PrimaryGeneratedColumn()
     id: number;
     

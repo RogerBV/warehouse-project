@@ -1,13 +1,13 @@
 import { Module } from "@nestjs/common";
-import { InternalMovementService } from "./internal.movement.service";
+import { MovementService } from "./movement.service";
 import { MovementController } from "./movement.controller";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { InternalMovement } from "./internal.movement.entity";
+import { Movement } from "./movement.entity";
 
 @Module({
-    imports: [TypeOrmModule.forFeature([InternalMovement])],
+    imports: [TypeOrmModule.forFeature([Movement])],
     controllers: [MovementController],
-    providers: [InternalMovementService]
+    providers: [MovementService]
 })
 
 export class MovementModule {}

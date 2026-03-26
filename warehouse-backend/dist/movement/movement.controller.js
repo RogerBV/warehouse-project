@@ -14,18 +14,18 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MovementController = void 0;
 const common_1 = require("@nestjs/common");
-const internal_movement_service_1 = require("./internal.movement.service");
+const movement_service_1 = require("./movement.service");
 const swagger_1 = require("@nestjs/swagger");
-const create_internal_movement_dto_1 = require("./dto/create-internal-movement.dto");
+const create_movement_dto_1 = require("./dto/create-movement.dto");
 let MovementController = class MovementController {
-    constructor(internalMovementService) {
-        this.internalMovementService = internalMovementService;
+    constructor(movementService) {
+        this.movementService = movementService;
     }
-    create(createInternalMovement) {
-        return this.internalMovementService.create(createInternalMovement);
+    create(createMovement) {
+        return this.movementService.create(createMovement);
     }
     findAll() {
-        return this.internalMovementService.findAll();
+        return this.movementService.findAll();
     }
 };
 exports.MovementController = MovementController;
@@ -35,7 +35,7 @@ __decorate([
     (0, swagger_1.ApiResponse)({ description: 'New Movement' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_internal_movement_dto_1.CreateInternalMovementDto]),
+    __metadata("design:paramtypes", [create_movement_dto_1.CreateMovementDto]),
     __metadata("design:returntype", void 0)
 ], MovementController.prototype, "create", null);
 __decorate([
@@ -49,6 +49,6 @@ __decorate([
 exports.MovementController = MovementController = __decorate([
     (0, swagger_1.ApiTags)('movements'),
     (0, common_1.Controller)('movements'),
-    __metadata("design:paramtypes", [internal_movement_service_1.InternalMovementService])
+    __metadata("design:paramtypes", [movement_service_1.MovementService])
 ], MovementController);
 //# sourceMappingURL=movement.controller.js.map

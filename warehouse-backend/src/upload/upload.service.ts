@@ -11,7 +11,6 @@ export class UploadService {
     constructor() {
         this.s3 = new S3Client({
             region: this.aws_region,
-            endpoint: 'http://localhost:4566',
             credentials: {
                 accessKeyId: this.apiKey,
                 secretAccessKey: this.secretAccessKey
