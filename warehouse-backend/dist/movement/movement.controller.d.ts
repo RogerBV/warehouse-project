@@ -1,8 +1,8 @@
-import { InternalMovementService } from "./internal.movement.service";
-import { CreateInternalMovementDto } from "./dto/create-internal-movement.dto";
+import { MovementService } from "./movement.service";
+import { CreateMovementDto } from "./dto/create-movement.dto";
 export declare class MovementController {
-    private readonly internalMovementService;
-    constructor(internalMovementService: InternalMovementService);
-    create(createInternalMovement: CreateInternalMovementDto): Promise<import("./internal.movement.entity").InternalMovement>;
-    findAll(): Promise<import("./internal.movement.entity").InternalMovement[]>;
+    private readonly movementService;
+    constructor(movementService: MovementService);
+    create(createMovement: CreateMovementDto): Promise<import("./movement.entity").Movement>;
+    findAll(): Promise<import("./movement.entity").Movement[]>;
 }

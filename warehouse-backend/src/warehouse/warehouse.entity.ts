@@ -1,4 +1,4 @@
-import { InternalMovement } from "../movement/internal.movement.entity";
+import { Movement } from "../movement/movement.entity";
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 
 
@@ -13,9 +13,9 @@ export class Warehouse {
     @Column({ length: 180 })
     address: string;
 
-    @OneToMany(() => InternalMovement, (movement) => movement.warehouseOrigin)
-    movementsOrigin: InternalMovement[];
+    @OneToMany(() => Movement, (movement) => movement.warehouseOrigin)
+    movementsOrigin: Movement[];
 
-    @OneToMany(() => InternalMovement, (movement) => movement.warehouseDestination)
-    movementsDestination: InternalMovement[];
+    @OneToMany(() => Movement, (movement) => movement.warehouseDestination)
+    movementsDestination: Movement[];
 }

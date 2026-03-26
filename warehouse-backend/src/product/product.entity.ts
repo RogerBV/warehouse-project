@@ -1,5 +1,5 @@
 import { Category } from "../category/category.entity";
-import { InternalMovement } from "../movement/internal.movement.entity";
+import { Movement } from "../movement/movement.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -19,6 +19,6 @@ export class Product {
     @JoinColumn({ name: 'category_id' })
     category: Category
 
-    @OneToMany(() => InternalMovement, (movement) => movement.product)
-    movements: InternalMovement[]
+    @OneToMany(() => Movement, (movement) => movement.product)
+    movements: Movement[]
 }

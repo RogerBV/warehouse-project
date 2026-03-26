@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Warehouse = void 0;
-const internal_movement_entity_1 = require("../movement/internal.movement.entity");
+const movement_entity_1 = require("../movement/movement.entity");
 const typeorm_1 = require("typeorm");
 let Warehouse = class Warehouse {
 };
@@ -28,11 +28,11 @@ __decorate([
     __metadata("design:type", String)
 ], Warehouse.prototype, "address", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => internal_movement_entity_1.InternalMovement, (movement) => movement.warehouseOrigin),
+    (0, typeorm_1.OneToMany)(() => movement_entity_1.Movement, (movement) => movement.warehouseOrigin),
     __metadata("design:type", Array)
 ], Warehouse.prototype, "movementsOrigin", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => internal_movement_entity_1.InternalMovement, (movement) => movement.warehouseDestination),
+    (0, typeorm_1.OneToMany)(() => movement_entity_1.Movement, (movement) => movement.warehouseDestination),
     __metadata("design:type", Array)
 ], Warehouse.prototype, "movementsDestination", void 0);
 exports.Warehouse = Warehouse = __decorate([

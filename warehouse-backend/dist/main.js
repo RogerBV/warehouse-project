@@ -7,6 +7,12 @@ const swagger_1 = require("@nestjs/swagger");
 const path_1 = require("path");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    app.enableCors({
+        origin: '*',
+        methods: '*',
+        allowedHeaders: '*',
+        credentials: false
+    });
     app.useStaticAssets((0, path_1.join)(__dirname, '..', 'images'), {
         prefix: '/images/',
     });

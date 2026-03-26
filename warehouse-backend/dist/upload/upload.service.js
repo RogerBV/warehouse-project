@@ -20,7 +20,6 @@ let UploadService = class UploadService {
         this.bucket = process.env.AWS_S3_BUCKET;
         this.s3 = new client_s3_1.S3Client({
             region: this.aws_region,
-            endpoint: 'http://localhost:4566',
             credentials: {
                 accessKeyId: this.apiKey,
                 secretAccessKey: this.secretAccessKey
