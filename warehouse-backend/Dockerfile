@@ -16,4 +16,4 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY package*.json ./
 COPY . .
 
-CMD ["npm", "run", "start:dev"]
+CMD ["node", "dist/main.js"]
