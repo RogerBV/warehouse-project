@@ -16,4 +16,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY package*.json ./
 COPY . .
 
+# Compilar desde src para que dist coincida siempre (evita despliegues sin SSL u otros cambios en TS)
+RUN npm run build
+
 CMD ["node", "dist/main.js"]
