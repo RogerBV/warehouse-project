@@ -14,4 +14,9 @@ export class AppController {
   getHealthcheck() {
     return [];
   }
+
+  @Get('healthcheckV2')
+  getHealthcheckV2() {
+    return [];
+  }
 }
